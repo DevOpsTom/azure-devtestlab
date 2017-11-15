@@ -19,6 +19,6 @@
       }
   },
   "runCommand": {
-    "commandToExecute": "[concat('sh linux-ruby.sh', parameters('rubyversion'))]"
+    "commandToExecute": "[concat('sh linux-ruby.sh ', parameters('rubyversion'))]"
 }
 }
