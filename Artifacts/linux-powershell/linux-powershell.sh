@@ -25,7 +25,7 @@ if [ -n "$isYum" ] ; then
 elif [ -n "$isApt" ] ; then
     echo "Using apt package manager"
     if [ $(lsb_release -r -s) = "16.04" ]; then
-        apt-get -q -y install libunwind8 libicu55
+        apt-get -q -y install libunwind8 libicu55 libcurl3 liblttng-ust0
         dpkg -i $FILE_NAME
     elif [ $(lsb_release -r -s) = "14.04" ]; then
         apt-get -q -y install libunwind8 libicu52
