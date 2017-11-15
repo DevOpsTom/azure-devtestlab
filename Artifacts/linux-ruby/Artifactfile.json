@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "Ruby",
+  "description": "Install Ruby on Linux using the Brightbox repository.",
+  "tags": [
+      "Ruby",
+      "Linux",
+      "Packages"
+  ],
+  "iconUri": "",
+  "targetOsType": "Linux",
+  "parameters": {
+      "rubyversion": {
+          "type": "string",
+          "displayName": "Ruby Version",
+          "defaultValue": "2.3",
+          "allowEmpty": false,
+          "description": "Ruby Version"
+      }
+  },
+  "runCommand": {
+    "commandToExecute": "[concat('sh linux-ruby.sh', parameters('rubyversion'))]"
+}
+}
