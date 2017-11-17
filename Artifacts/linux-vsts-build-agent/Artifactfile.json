@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+  "title": "VSTS Build Agent",
+  "description": "Install VSTS build agent on Ubuntu Linux using.",
+  "tags": [
+      "VSTS",
+      "Linux",
+      "Ubuntu"
+  ],
+  "iconUri": "",
+  "targetOsType": "Linux",
+  "parameters": {
+      "vsts_url": {
+          "type": "string",
+          "displayName": "VSTS URL",
+          "defaultValue": "https://devopsguys.visualstudio.com",
+          "allowEmpty": false,
+          "description": "VSTS URL"
+      },
+      "agent_pool": {
+        "type": "string",
+        "displayName": "Agent Pool",
+        "defaultValue": "default",
+        "allowEmpty": false,
+        "description": "Agent Pool"
+      },
+      "auth_token": {
+        "type": "string",
+        "displayName": "PAT Token",
+        "defaultValue": "",
+        "allowEmpty": false,
+        "description": "PAT Token"
+      }
+  },
+  "runCommand": {
+    "commandToExecute": "[concat('sh linux-vsts-build-agent.sh ',' ', parameters('vsts_url'),' ', parameters('agent_pool'),' ', parameters('auth_token'))]"
+}
+}
