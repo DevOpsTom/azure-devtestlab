@@ -10,16 +10,19 @@ url=$1
 pool=$2
 token=$3
 
+useradd vsts-agent
+
 INSTALL_DIR=/opt/vsts-build-agent
 
-vsts_agent_version="2.124.0"
-vsts_agent_url="https://github.com/Microsoft/vsts-agent/releases/download/v${vsts_agent_version=}/vsts-agent-ubuntu.16.04-x64-${vsts_agent_version=}.tar.gz"
+VSTS_AGENT_VERSION="2.124.0"
+VSTS_AGENT_URL="https://github.com/Microsoft/vsts-agent/releases/download/v${VSTS_AGENT_VERSION=}/vsts-agent-ubuntu.16.04-x64-${VSTS_AGENT_VERSION=}.tar.gz"
 
 mkdir $INSTALL_DIR
 cd $INSTALL_DIR
-wget $vsts_agent_url
-tar zxvf vsts-agent-ubuntu.16.04-x64-${vsts_agent_version}.tar.gz
+wget $VSTS_AGENT_URL
+tar zxvf vsts-agent-ubuntu.16.04-x64-${VSTS_AGENT_VERSION}.tar.gz
+chown -R vsts-agent:vsts-agent $INSTALL_DIR
 
-sudo -H -u $(logname) bash -c "./config.sh --unattended --url $url --auth pat --token $token --pool $pool --agent `hostname` --acceptTeeEula"
-./svc.sh install &
+sudo -H -u vsts-agent bash -c "./config.sh --unattended --url $url --auth pat --token $token --pool $pool --agent $(hostname) --acceptTeeEula"
+./svc.sh install
 ./svc.sh start &
