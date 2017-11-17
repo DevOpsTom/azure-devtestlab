@@ -18,18 +18,18 @@
           "description": "VSTS URL"
       },
       "agent_pool": {
-        "type": "string",
-        "displayName": "Agent Pool",
-        "defaultValue": "default",
-        "allowEmpty": false,
-        "description": "Agent Pool"
+          "type": "string",
+          "displayName": "Agent Pool",
+          "defaultValue": "default",
+          "allowEmpty": false,
+          "description": "Agent Pool"
       },
       "auth_token": {
-        "type": "string",
-        "displayName": "PAT Token",
-        "defaultValue": "",
-        "allowEmpty": false,
-        "description": "PAT Token"
+          "type": "securestring",
+          "displayName": "PAT Token",
+          "defaultValue": "",
+          "allowEmpty": false,
+          "description": "PAT Token"
       }
   },
   "runCommand": {
