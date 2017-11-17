@@ -23,6 +23,7 @@ wget $VSTS_AGENT_URL
 tar zxvf vsts-agent-ubuntu.16.04-x64-${VSTS_AGENT_VERSION}.tar.gz
 chown -R vsts-agent:vsts-agent $INSTALL_DIR
 
-sudo -H -u vsts-agent bash -c "cd $INSTALL_DIR;./config.sh --unattended --url $url --auth pat --token $token --pool $pool --agent $(hostname) --acceptTeeEula" > /tmp/vsts.log
+sudo -u vsts-agent bash -c "cd $INSTALL_DIR;./config.sh --unattended --url $url --auth pat --token $token --pool $pool --agent $(hostname) --acceptTeeEula" > /tmp/vsts.log
 ./svc.sh install &
+sleep 30
 ./svc.sh start &
