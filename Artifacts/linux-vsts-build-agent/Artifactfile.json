@@ -40,6 +40,6 @@
       }
   },
   "runCommand": {
-    "commandToExecute": "[concat('sh linux-vsts-build-agent.sh ',' ', parameters('vsts_url'),' ', parameters('agent_pool'),' ', parameters('auth_token')' ', parameters('install_user'))]"
+    "commandToExecute": "[concat('sh linux-vsts-build-agent.sh ',' ', parameters('vsts_url'),' ', parameters('agent_pool'),' ', parameters('auth_token'),' ', parameters('install_user'))]"
 }
 }
